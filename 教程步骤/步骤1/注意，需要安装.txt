@@ -1,0 +1,9 @@
+cmd中输入
+
+npm install webpack --save-dev
+这是 webpack 基础功能
+
+npm install css-loader style-loader --save-dev
+这是
+css-loader，代表让 webpack打包支持 css 文件类型
+style-loader，代表让 css 代码可以识别
