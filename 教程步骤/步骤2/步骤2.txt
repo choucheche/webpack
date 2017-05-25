@@ -4,6 +4,9 @@ webpack官方中文文档
 此步骤为
 慕课网 webpack深入与实战 2-1章节 http://www.imooc.com/learn/802
 
+此课程文件夹为 demo2-webpack-demo
+webpack版本为 2.6
+
 cmd中输入
 
 npm install webpack --save-dev
@@ -13,7 +16,50 @@ npm install webpack --save-dev
 
 在根目录创建 index.html 文件 写入 <script src='bundle.js'></script>
 
-在 src 目录创建 script，src
+在 src 目录创建 script，style 文件夹
+
+在src/script目录创建 js 文件夹
 
 在根目录创建 webpack.config.js 文件
 这是 webpack 的默认配置文件名，每次使用 webpack 它会直接调用 webpack.config.js 文件的内容
+
+在 webpack.config.js 文件写入
+
+module.exports ={
+  entry:'./src/script/main.js',
+  //我们打包的入口从哪个路径开始
+  output:{
+  //打包以后的输出文件目录
+    filename:'./dist/js/bundle.js'
+    //打包以后的文件名
+  }
+};
+
+在 cmd 执行
+.\node_modules\.bin\webpack --display-mods --display-reasons --progress --watch
+
+可以看到 dist/js/bundle.js 生成了
+
+将根目录下 webpack.config.js 文件改名为 webpack.dev.config.js
+再执行
+.\node_modules\.bin\webpack --display-mods --display-reasons --progress --watch
+就无效了，因为 webpack.config.js 是默认的 webpack 执行文件名
+这时候需要在 cmd 执行
+.\node_modules\.bin\webpack --config webpack.dev.config.js
+才能成功
+上面的 --config 是以另一个执行文件名启动，
+就是说,如果根目录下的 webpack.config.js 改名为 webpack.dev.config.js 了
+那么以后在 cmd 执行 webpack
+都要用
+.\node_modules\.bin\webpack --config webpack.dev.config.js
+才行
+
+现在将 webpack.dev.config.js 文件名改回 webpack.config.js
+又可以在 cmd 用 .\node_modules\.bin\webpack --display-mods --display-reasons --progress --watch
+来执行 webpack
+
+在 package.json 文件 scripts 里写入
+"webpack": "webpack --config webpack.config.js --display-modules --display-reasons --progress --watch"
+这样以后就只用在 cmd 里输入
+npm run webpack
+就行运行 webpack 了

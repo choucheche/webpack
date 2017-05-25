@@ -1,0 +1,58 @@
+https://doc.webpack-china.org/guides/get-started/
+webpack官方中文文档
+
+此步骤为
+慕课网 webpack深入与实战 2-2章节 http://www.imooc.com/learn/802
+
+此课程文件夹为 demo2-webpack-demo
+webpack版本为 2.6
+
+在 webpack.config.js 文件中进行修改
+将
+entry:'./src/script/main.js',
+改为
+entry:['./src/script/main.js','./src/script/a.js'],
+
+在 webpack.config.js 文件中进行修改
+将
+entry:['./src/script/main.js','./src/script/a.js'],
+改为对象写法
+entry:{
+  main:'./src/script/main.js',
+  a:'./src/script/a.js'
+},
+
+将
+output:{
+//打包以后的输出文件目录
+  filename:'./dist/js/bundle.js'
+  //打包以后的文件名
+}
+改为
+output:{
+//打包以后的输出文件目录
+  filename:'./dist/js/[name].js'
+  //打包以后的文件名，这里的 [name] 为 上面 entry:{} 里的对象名
+}
+
+在 cmd 输入 npm run webpack
+最后在 dist/js/ 生成了 a.js 和 main.js
+
+在 webpack.config.js 文件中进行修改
+将
+output:{
+//打包以后的输出文件目录
+  filename:'./dist/js/[name].js'
+  //打包以后的文件名，这里的 [name] 为 上面 entry:{} 里的对象名
+}
+改为
+output:{
+//打包以后的输出文件目录
+  filename:'./dist/js/[name]-[chunkhash].js'
+  /*
+    打包以后的文件名，这里的 [name] 为 上面 entry:{} 里的对象名
+
+    [chunkhash] 为 hash（哈希）值，用来解决缓存版本号用的
+    以后每次修改 entry 里的文件时，相应的文件[chunkhash]的版本号都会改变
+  */
+}
