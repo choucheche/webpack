@@ -1,0 +1,19 @@
+https://doc.webpack-china.org/guides/get-started/
+webpack官方中文文档
+
+此步骤为
+慕课网 webpack深入与实战 2-1章节 http://www.imooc.com/learn/802
+
+cmd中输入
+
+npm install webpack --save-dev
+这是 webpack 基础功能
+
+创建文件夹，src，dist
+
+在根目录创建 index.html 文件 写入 <script src='bundle.js'></script>
+
+在 src 目录创建 script，src
+
+在根目录创建 webpack.config.js 文件
+这是 webpack 的默认配置文件名，每次使用 webpack 它会直接调用 webpack.config.js 文件的内容
