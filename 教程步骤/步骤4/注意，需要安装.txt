@@ -1,0 +1,7 @@
+﻿cmd中输入
+
+npm install webpack --save-dev
+这是 webpack 基础功能
+
+npm install html-webpack-plugin --save-dev
+这是

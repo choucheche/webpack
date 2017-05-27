@@ -1,3 +1,6 @@
+var htmlWebpackPlugin = require('html-webpack-plugin');
+//引用插件 html-webpack-plugin，引用的变量名为 htmlWebpackPlugin
+
 module.exports ={
   entry:{
     main:'./src/script/main.js',
